@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script src="tea-block.js"></script>
+<script>
+	var encrypt_for_password = "jdklsajdflkjdla;jsdflkjsdlkfjsdlkj;flksdj";
+	var password = window.prompt("Enter a encryption phrase:", "");
+	window.alert("password:\n" + Tea.encrypt(password, encrypt_for_password));
+	var pattern = window.prompt("Enter pattern to encrypt:", "");
+	var pattern_dates = window.prompt("Enter date strings separated by comas to encrypt:", "");
+	window.alert("pattern:\n" + Tea.encrypt(pattern, password));
+	window.alert("pattern_dates:\n" + Tea.encrypt(pattern_dates, password));
+</script>
+</head>
+
+<html>
