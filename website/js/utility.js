@@ -219,7 +219,7 @@ function showAbout() {
 	info += "Version: 1.0\n";
 	info += "Author: Josiah Neuberger\n";
 	info += "Contact: http://designaquark@gmail.com\n";
-	info += "\n\nLicense: " + getLicenseInfo() + "\n";
+	info += "\n\nLicense:\n" + getLicenseInfo() + "\n";
 	
 	alert(info);
 }

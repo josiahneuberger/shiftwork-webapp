@@ -30,25 +30,33 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <style>
 
-
-.side_label1 {
-    position:absolute;
-    width:150px;
-	left:175px;	
-	padding-top:20px;
-}
 .side_label {
 
 	padding: 0px 0px 0px 20px;
 	position:fixed;
-	float:left;
-	left:100px;
-	top:400px;
+	left:130px; left:13rem;
+	top:330px;
 	width:185px;
 	height:200px;
 	z-index:3
-	
 }
+
+.chrome .side_label { left:20rem; }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) { .side_label { left:5rem; position:absolute; }}
+
+.side_label2 {
+	padding: 0px 0px 0px 20px;
+	position:fixed;
+	left:195px; left:19.5rem;
+	top:430px;
+	width:185px;
+	height:200px;
+	z-index:3
+}
+
+.chrome .side_label2 { left:25rem; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) { .side_label2 { left:12rem; position:absolute; }}
 
 .debug_label {
 
@@ -59,8 +67,7 @@
 	top:600px;
 	width:185px;
 	height:200px;
-	z-index:3
-	
+	z-index:3	
 }
 
 
@@ -73,8 +80,17 @@
 
 .schedule {
 	overflow-x:scroll; 
+	position:relative;
 	display:block;
 	width:750px;
+	left:200px;
+}
+
+.schedule-top {
+	position:relative;
+	display:block;
+	width:750px;
+	left:200px;
 }
 
 header {
@@ -86,8 +102,8 @@ header {
 	margin-left:auto;
 	margin-right:auto;
 	top:20px;
-	height:300px;
-	width:1300px;
+	height:230px;
+	width:1100px;
 }
 
 body {
@@ -110,15 +126,20 @@ footer {
 	margin-left:auto;
 	margin-right:auto;
 	top:20px;
-	width:900px;
+	width:1000px;
 	height:1440px;
+	padding: 35px 75px 75px 75px;
 }
 
-.table{
+.table {
     display:table;
     width:250px;
     table-layout:fixed;
+	margin-right:5px;
 }
+
+.chrome .table { margin-right:20px; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) { .table { margin-right:30px; }}
 
 .table tr {
 	text-align:center;
@@ -126,11 +147,14 @@ footer {
 
 .table td {
 	display:table-cell;
-	width:100px;
+	width:25px;
 	height:25px;
 	border:solid black 1px;
 	text-align:center;
+	margin:2px;
 }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) { .table td { margin: 35px; }}
 
 .weekdays td {
 	border:none;
@@ -156,6 +180,22 @@ footer {
 	background-color:white;
 }
 
+.circle {
+	background:red;
+	width:50px;
+	height:50px;
+	border-radius:50px;
+	margin-bottom:3px;
+}
+
+.circle div {
+	position:relative;
+	top:35%;
+	left:20%;
+	font-size:0.8em;
+	font-color:black;
+}
+
 <!--Dropotron Menu-->
 #main-nav ul { margin: 0; padding: 0;  }
 #main-nav ul li { margin: 0 0em 0 0em; padding: 0.0em 0.75em 0.0em 0.75em; border-radius: 0.5em; }
@@ -171,6 +211,20 @@ footer {
 
 
 </style>
+<script>
+	//http://css-tricks.com/theres-more-to-the-css-rem-unit-than-font-sizing/
+	//https://gist.github.com/brianblakely/3106678
+	function remCalibrate() {
+	    var aspect_ratio =  (window.innerHeight/window.innerWidth)/0.75
+		var vwh =  window.innerWidth/100
+		var rem = Math.max(8,Math.min(24,vwh*aspect_ratio))
+		
+		document.documentElement.style.fontSize = window.innerWidth/100 + 'px';
+	}
+	remCalibrate();
+	window.addEventListener('resize', remCalibrate, false);
+</script>
+<script type="text/javascript" src="js/css_browser_selector.js"></script>
 <script src="js/json2.js"></script>
 <script type="text/javascript" src="js/date.js"></script>
 <script src="js/jquery.min.js"></script>
@@ -203,7 +257,7 @@ footer {
 </head>
 <body>
 <header>
-<div><img style="display:block; margin:auto; " src="logos/your_logo.png" /></div>
+<div><img style="display:block; margin:auto;" src="logos/your_logo.png" /></div>
 </header>
 <noscript><div><p>no javascript<p></div></noscript>
 
@@ -230,6 +284,7 @@ footer {
 					<li class="menuli"><button class="menubutton" onclick="window.open('http://thenounproject.com/', '_blank')">The Noun Project</button></li>
 					<li class="menuli"><button class="menubutton" onclick="showIconAbout()">Icon Attribution</button></li>
 					<li class="menuli"><button class="menubutton" onclick="window.open('http://subtlepatterns.com/', '_blank')">Subtle Patterns</button></li>
+					<li class="menuli"><button class="menubutton" onclick="window.open('http://ridjohansen.github.io/css_browser_selector/index_en.html', '_blank')">CSS Browser Selector</button></li>
 					<li class="menuli"><button class="menubutton" onclick="window.open('http://www.datejs.com/', '_blank')">DateJS</button></li>
 					<li class="menuli"><button class="menubutton" onclick="window.open('http://www.json.org/', '_blank')">JSON</button></li>
 					<li class="menuli"><button class="menubutton" onclick="window.open('http://jquery.com/', '_blank')">jQuery</button></li>
@@ -241,6 +296,7 @@ footer {
 				<ul>
 					<li class="menuli"><button class="menubutton" onclick="window.open('http://opensource.org/licenses/mit-license.php', '_blank')">Dropotron License</button></li>
 					<li class="menuli"><button class="menubutton" onclick="window.open('http://creativecommons.org/licenses/by-sa/3.0/', '_blank')">Subtle Patterns License</button></li>
+					<li class="menuli"><button class="menubutton" onclick="window.open('http://creativecommons.org/licenses/by/2.5/', '_blank')">CSS Browser Selector</button></li>
 					<li class="menuli"><button class="menubutton" onclick="window.open('http://opensource.org/licenses/mit-license.php', '_blank')">DateJS License</button></li>
 					<li class="menuli"><button class="menubutton" onclick="window.open('http://opensource.org/licenses/mit-license.php', '_blank')">jQuery License</button></li>
 					<li class="menuli"><button class="menubutton" onclick="window.open('http://www.json.org/license.html', '_blank')">JSON License</button></li>
@@ -251,16 +307,21 @@ footer {
 	</ul>
 </nav>
 
+<div class="side_label2">
+	<div class="circle" style="background:#993300"><div>Nights</div></div>
+	<div class="circle" style="background:#33cccc"><div>Days</div></div>
+	<div class="circle" style="background:#666699"><div>Eves</div></div>
+</div>
 
-<div class="central" style="padding:15px 75px 75px 375px;">	
+<div class="central">	
 	
-	<div><h2 style="text-decoration:underline;">Team #1</h2></div><div id="calendar1" class="schedule"></div>
+	<div class="schedule-top"><h2 style="text-decoration:underline;">Team #1</h2></div><div id="calendar1" class="schedule"></div>
 
-	<div><h2 style="text-decoration:underline">Team #2</h2></div><div id="calendar2" class="schedule"></div>
+	<div class="schedule-top"><h2 style="text-decoration:underline">Team #2</h2></div><div id="calendar2" class="schedule"></div>
 
-	<div><h2 style="text-decoration:underline">Team #3</h2></div><div id="calendar3" class="schedule"></div>
+	<div class="schedule-top"><h2 style="text-decoration:underline">Team #3</h2></div><div id="calendar3" class="schedule"></div>
 
-	<div><h2 style="text-decoration:underline">Team #4</h2></div><div id="calendar4" class="schedule"></div>
+	<div class="schedule-top"><h2 style="text-decoration:underline">Team #4</h2></div><div id="calendar4" class="schedule"></div>
 </div>
 
 <script>
