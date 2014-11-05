@@ -4,8 +4,18 @@ shiftwork-webapp
 Shift Work Web App by Designaquark Josiah Neuberger
 <a href="http://designaquark.com" target=_blank>http://designaquark.com<a/>
 
-The Shift Work Web App is an open source (Apache Licence 2.0) web application that displays a rotating shift in a nice format using html, javascript,
+The Shift Work Web App is an open source web application that displays a rotating shifts in a nice format using html, javascript,
  and just a bit of php for masking of the pattern.
+ 
+Update:
+The html5 branch is a much better option. It plays better with smaller screens and the menu if fixed.
+ 
+License Info:
+-----------------
+This web app makes use of many third party tools, which are licensed under various open source licenses. Also, the html5up branch is built on top of the 
+html5up template 'Read Only', which is licensed under a Creative Commons 3.0: Attribution License. I have licensed my work under the Apache License 2.0; however,
+all third-party tools/frameworks retain its original licence and may require attribution. Please consult a lawyer if you are unsure of what this means before
+making use of this product.
 
 WARNING: If you host this page on the internet then your schedule settings are exposed to the client. The only way to secure the settings.xml file is to
  hosts the web page on a local secured Intranet.
