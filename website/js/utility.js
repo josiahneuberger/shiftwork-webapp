@@ -73,7 +73,7 @@ function getSchedule(team, row) {
 			w++;
 			var h2 = document.createElement("H2");
 			h2.innerHTML = "<h2>Previous<br>Months</h2>";
-			row.insertCell(w).innerHTML = "<h2>Previous<br>Months<img style='float:right;' src='images/icon_6645.png' /></h2>";
+			row.insertCell(w).innerHTML = "<h2 style='padding:10px;'><br><br>Previous<br>Months<img style='float:right;' src='images/icon_6645.png' /></h2>";
 			
 		} else {
 			indexMonth++;
@@ -105,7 +105,7 @@ function createMonth(team, year, month, pattern, pattern_dates) {
 	var offset = date.getDay();
 	if (offset==0) {
 		for (i=0; i<7; i++) {
-			row += "<td class='off'></td>";
+			row += "<td class='off'>&nbsp</td>";
 		}
 		table.insertRow(rowIndex).innerHTML = row;
 		rowIndex++;
@@ -115,7 +115,7 @@ function createMonth(team, year, month, pattern, pattern_dates) {
 	} else {
 
 		for (i=0; i<offset; i++) {
-			row += "<td class='off'></td>";
+			row += "<td class='off'>&nbsp</td>";
 		}
 	}
 
@@ -126,7 +126,7 @@ function createMonth(team, year, month, pattern, pattern_dates) {
 
 		var shift = shifts[shiftIndex]; 
 		if (mc > 0) row += "<td class='" + shift + "'>" + date.toString("d") + "</td>";
-		else { row += "<td class='off'> </td>"; }
+		else { row += "<td class='off'>&nbsp</td>"; }
 		
 		//update looping parameters
 		date = date.addDays(1);
@@ -204,7 +204,8 @@ function showIconAbout() {
 	
 	var info = "The icons listed here can be found at:\n";
 	info += "http://www.thenounproject.com\n\n";
-	info += "Info Icon:\t\tKarthick Nagarajan - Icon #5134\n"
+	info += "Info Icon:\t\tKarthick Nagarajan - Icon #5134\n";
+	info += "Info Icon:\t\tDavid Waschbüsch - Icon #1667\n";
 	
 	window.alert(info);
 }
